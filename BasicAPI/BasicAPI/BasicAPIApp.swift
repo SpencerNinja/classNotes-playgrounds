@@ -11,7 +11,7 @@ import SwiftUI
 struct BasicAPIApp: App {
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            ApiView()
         }
     }
 }

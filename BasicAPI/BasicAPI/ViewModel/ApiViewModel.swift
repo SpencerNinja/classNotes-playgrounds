@@ -11,9 +11,10 @@ import SwiftUI
 
 class ApiViewModel: ObservableObject {
     
-    @Published var books = [Book]()
+    @Published var apiResponses = [ApiPosts]()
     
-    let url = URL(string: "https://the-one-api.dev/v2/book")!
+//    let url = URL(string: "https://the-one-api.dev/v2/book")!
+    let url = URL(string: "https://jsonplaceholder.typicode.com/posts")!
     
     var cancellables = Set<AnyCancellable>()
     
@@ -21,10 +22,10 @@ class ApiViewModel: ObservableObject {
         loadBooks()
     }
     
-    func fetchBooks() -> AnyPublisher<[Book], Error> {
+    func fetchBooks() -> AnyPublisher<[ApiPosts], Error> {
         URLSession.shared.dataTaskPublisher(for: url)
             .map( { $0.data } )
-            .decode(type: [Book].self, decoder: JSONDecoder())
+            .decode(type: [ApiPosts].self, decoder: JSONDecoder())
             .receive(on: DispatchQueue.main)
             .eraseToAnyPublisher()
     }
@@ -32,9 +33,9 @@ class ApiViewModel: ObservableObject {
     func loadBooks() {
         fetchBooks()
             .sink { _ in
-            } receiveValue: { [weak self] returnedBooks in
-                print(returnedBooks.first! as Book)
-                self?.books = returnedBooks
+            } receiveValue: { [weak self] returnedPosts in
+                print(returnedPosts.first! as ApiPosts)
+                self?.apiResponses = returnedPosts
             }
             .store(in: &cancellables)
     }
