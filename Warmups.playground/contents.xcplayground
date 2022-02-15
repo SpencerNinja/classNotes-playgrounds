@@ -4,5 +4,6 @@
         <page name='Squares'/>
         <page name='Maskify'/>
         <page name='APICall'/>
+        <page name='InArray'/>
     </pages>
 </playground>
