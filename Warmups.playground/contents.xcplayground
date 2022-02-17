@@ -6,5 +6,6 @@
         <page name='APICall'/>
         <page name='InArray'/>
         <page name='Duplicates'/>
+        <page name='Amazon Challenges'/>
     </pages>
 </playground>
