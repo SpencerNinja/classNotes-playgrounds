@@ -1,5 +1,5 @@
 /*
- Create a program that tells an Amazon Delivery Driver how to pack variable number of trucks evenly with a product. The products will be represented by an array of weights.
+ Create a program that tells an Amazon Delivery Driver how to pack a variable number of trucks evenly with a product. The products will be represented by an array of weights.
  */
 
 // We have a pile of packages with different weights
