@@ -1,5 +1,15 @@
 /*
  Create a program that tells an Amazon Delivery Driver how to pack a variable number of trucks evenly with a product. The products will be represented by an array of weights.
+ 
+ Example:
+    - Given the following array of packages with the following weights [2, 3, 1, 5, 3, 1, 4], divide the weight as evenly possible between 3 trucks.
+    - Calculations
+        - average weight per truck 6.33
+        - sorted list = [5, 4, 3, 3, 2, 1, 1])
+    - The result would look something like this:
+        - Truck 1 = [5, 1]
+        - Truck 2 = [4, 2]
+        - Truck 3 = [3, 3, 1]
  */
 
 // We have a pile of packages with different weights
