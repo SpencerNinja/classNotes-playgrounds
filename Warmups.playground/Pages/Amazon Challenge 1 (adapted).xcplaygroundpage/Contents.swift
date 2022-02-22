@@ -24,55 +24,55 @@
 import Foundation
 
 func calcMinimumNumPackages(numTrucks: Int, weightsArray: [Package]) -> [[Int]] {
-    let sum = weightsArray.map { $0.weight }.reduce(0, +)
-    let avg = sum / numTrucks
-    var allWeights = weightsArray
-    for _ in 1...numTrucks {
-        trucks.append(Truck(maxWeight: avg))
-    }
-    for truck in trucks {
-        truck.fill(amount: avg, packages: allWeights)
-    }
+//    let sum = weightsArray.map { $0.weight }.reduce(0, +)
+//    let avg = sum / numTrucks
+//    var allWeights = weightsArray
+//    for _ in 1...numTrucks {
+//        trucks.append(Truck(maxWeight: avg))
+//    }
+//    for truck in trucks {
+//        truck.fill(amount: avg, packages: allWeights)
+//    }
     
     return [[]]
 }
 
-struct Truck {
-    let maxWeight: Int
-    var payload: Int
-    
-    mutating func fill(amount: Int, packages: [Package]) {
-        // Loop through packages and fill the truck with any that will fit
-        for package in packages {
-            // check if the package will fit in the truck
-            if package.weight < self.maxWeight {
-                payload += package.weigth
-                AmazonManager.packages.removeAll(where: package.id == )
-            }
-        }
-    }
-}
-
+//struct Truck {
+//    let maxWeight: Int
+//    var payload: Int
+//
+//    mutating func fill(amount: Int, packages: [Package]) {
+//        // Loop through packages and fill the truck with any that will fit
+//        for package in packages {
+//            // check if the package will fit in the truck
+//            if package.weight < self.maxWeight {
+//                payload += package.weigth
+//                AmazonManager.packages.removeAll(where: package.id == )
+//            }
+//        }
+//    }
+//}
+//
 struct Package: Identifiable {
     let id = UUID().uuidString
-    let weight: Int
+//    let weight: Int
 }
-
-class AmazonManager {
-    
-}
-static var packages = [
-    Package(weight: 1),
-    Package(weight: 2),
-    Package(weight: 3),
-    Package(weight: 3),
-    Package(weight: 4),
-    Package(weight: 4),
-    Package(weight: 4),
-    Package(weight: 5),
-    Package(weight: 6),
-    Package(weight: 7),
-    Package(weight: 7),
-    Package(weight: 9)
-]
-print(calcMinimumNumPackages(numTrucks: 3, weights: weights.sorted(by: { $0 > $1 })))
+//
+//class AmazonManager {
+//
+//}
+//static var packages = [
+//    Package(weight: 1),
+//    Package(weight: 2),
+//    Package(weight: 3),
+//    Package(weight: 3),
+//    Package(weight: 4),
+//    Package(weight: 4),
+//    Package(weight: 4),
+//    Package(weight: 5),
+//    Package(weight: 6),
+//    Package(weight: 7),
+//    Package(weight: 7),
+//    Package(weight: 9)
+//]
+//print(calcMinimumNumPackages(numTrucks: 3, weights: weights.sorted(by: { $0 > $1 })))
