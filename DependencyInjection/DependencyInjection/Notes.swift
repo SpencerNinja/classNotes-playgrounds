@@ -8,7 +8,7 @@
 /**
  DEPENDENCY INJECTION in Swift
  
- Dependency Injection is providing the instance variable that an objec tneeds (its dependencies) instead of having it construct them itself.
+ Dependency Injection is providing the instance variable that an object needs (its dependencies) instead of having it construct them itself.
  
  It's a very useful technique for testing, since it allows dependencies to be mocked or stubbed out.
  
