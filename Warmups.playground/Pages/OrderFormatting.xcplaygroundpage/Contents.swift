@@ -34,13 +34,13 @@
  */
 
 
-var testString = "milkshakepizzachickenfriescokeburgerpizzasandwichmilkshakepizza"
+var incomingOrder = "milkshakepizzachickenfriescokeburgerpizzasandwichmilkshakepizza"
 
-func formatOrder() {
-    var newString = ""
+func formatOrder() -> String {
+    var formattedOrder = ""
     
-    while testString.count > 0 {
-        let firstTwoCharacters = testString.prefix(2)
+    while incomingOrder.count > 0 {
+        let firstTwoCharacters = incomingOrder.prefix(2)
         var menuItem = ""
         
         switch firstTwoCharacters {
@@ -64,12 +64,16 @@ func formatOrder() {
             print("String doesn't match. firstTwoCharacters = \(firstTwoCharacters)")
         }
 
-        testString.deletingPrefix(menuItem)
+        incomingOrder.deletingPrefix(menuItem)
         menuItem.capitalizeFirstLetter()
-        newString.append(menuItem)
-        newString.append(" ")
+        formattedOrder.append(menuItem)
+        if incomingOrder.count > 0 {
+            formattedOrder.append(" ")
+        }
+        
     }
     
+    return formattedOrder
 }
 
 extension String {
@@ -87,6 +91,7 @@ extension String {
     }
 }
 
-//print(formatOrder())
-print(testString.capitalizingFirstLetter())
-print("Hello")
+//print("Hello")
+//print(testString.capitalizingFirstLetter())
+//print(testString.deletingPrefix("milkshake"))
+print(formatOrder())
