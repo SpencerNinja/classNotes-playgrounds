@@ -25,16 +25,17 @@
 
 /*
  PSEUDOCODE:
- 
  1. Check first two characters and find the matching menu item
  2. Capitalize first letter of item and add to new string
  3. If old string is not empty, add a space to end of new string
  3. Remove that item.count from the beginning of the old string
  4. Repeat
+ 5. Sort
  */
 
 
 var incomingOrder = "milkshakepizzachickenfriescokeburgerpizzasandwichmilkshakepizza"
+let orderMenu = ["Burger", "Fries", "Chicken", "Pizza", "Sandwich", "Onionrings", "Milkshake", "Coke"]
 
 func formatOrder() -> String {
     var formattedOrder = ""
@@ -64,7 +65,7 @@ func formatOrder() -> String {
             print("String doesn't match. firstTwoCharacters = \(firstTwoCharacters)")
         }
 
-        incomingOrder.deletingPrefix(menuItem)
+        incomingOrder = incomingOrder.deletingPrefix(menuItem)
         menuItem.capitalizeFirstLetter()
         formattedOrder.append(menuItem)
         if incomingOrder.count > 0 {
@@ -73,7 +74,18 @@ func formatOrder() -> String {
         
     }
     
-    return formattedOrder
+    let sortedOrder: [String] = formattedOrder.components(separatedBy: " ")
+    var finalFormattedOrder: [String] = []
+    
+    for menuItem in orderMenu {
+        for item in sortedOrder {
+            if item == menuItem {
+                finalFormattedOrder.append(item)
+            }
+        }
+    }
+    
+    return finalFormattedOrder.joined(separator: " ")
 }
 
 extension String {
@@ -91,7 +103,7 @@ extension String {
     }
 }
 
-//print("Hello")
-//print(testString.capitalizingFirstLetter())
-//print(testString.deletingPrefix("milkshake"))
+//print(incomingOrder.capitalizingFirstLetter())
+//print(incomingOrder.deletingPrefix("milkshake"))
+//print(incomingOrder.deletingPrefix("pizza"))
 print(formatOrder())
